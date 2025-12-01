@@ -1,0 +1,38 @@
+@import "tailwindcss";
+:root {
+  --main-color1: #2e3463;
+  --main-color1-light: color-mix(in srgb, #2e3463 100%, white 10%);
+  --main-color2: #4caf50;
+  --main-color3: #ff9800;
+  --gradient-primary: linear-gradient(135deg, #E45895 0%, #BB6AE6 100%);
+  --gradient-primary-inverse: linear-gradient(135deg, #BB6AE6 0%, #E45895 100%);
+}
+
+.gradient-text {
+  background: var(--gradient-primary);
+}
+.gradient-text-inverse {
+  background: var(--gradient-primary-inverse);
+}
+
+.button-primary-pressed {
+  background: var(--gradient-primary);
+}
+
+.button-primary:hover {
+  transition: all 0.3s ease-in-out;
+  background: var(--gradient-primary);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  color: white;
+}
+
+.fondo {
+  background-image: url(/country-quiz/public/bg.jpg);
+}
