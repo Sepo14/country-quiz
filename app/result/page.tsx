@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Image from "next/image";
 
-export default function Page() {
+function ResultContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
     const scoreParam = searchParams.get("score");
@@ -33,7 +33,6 @@ export default function Page() {
 
     return (
         <main className="flex flex-col min-h-screen w-full items-center justify-center">
-
             <div className="flex flex-col bg-(--main-color1) rounded-xl p-8 shadow-sm min-w-[500px] w-1/2 min-h-80 items-center justify-between gap-4">
                 <h2>Result</h2>
                 {
@@ -57,5 +56,13 @@ export default function Page() {
                 </div>
             </div>
         </main>
+    );
+}
+
+export default function Page() {
+    return (
+        <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Cargando...</div>}>
+            <ResultContent />
+        </Suspense>
     );
 }
